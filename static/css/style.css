@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #111;
+    --bg-secondary: #1A1A1A;
+    --bg-tertiary: #232323;
+    --border: #2F2F2F;
+    --text-primary: #E6E6E6;
+    --text-secondary: #A3A3A3;
+    --text-muted: #737373;
+    --accent: #1b365d;
+    --accent-hover: #090c65;
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --border: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    background: var(--radius);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    right: 20px;
+    opacity: 0.4;
+}
+
+[data-theme="dark"] .theme-toggle {
+    right: -24px;
+    opacity: 0.4;
+}
+
+.theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--text-primary);
+}
+
+.theme-toggle .sun { display: none; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Muli", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: scroll;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    transition: background 0.3s ease, color 0.3 ease;
+}
+
+p {
+    color: var(--text-primary);
+}
+
+.container {
+    background-color: var(--accent);
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container a {
+    text-decoration: none;
+    color: var(--accent-hover);
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background: var(--accent-hover);
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.text {
+    margin-top: 30px;
+}
+
+h1 {
+    color: var(--text-primary);
+}
+
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 300px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: flex;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+    color: lightblue;
+    transform: translateY(-30px);
+}
+
+a {
+    color: var(--text-muted);
+}
+
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 14px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--accent);
+}
+
+.footer .footer-links {
+    margin-bottom: 6px;
+}
